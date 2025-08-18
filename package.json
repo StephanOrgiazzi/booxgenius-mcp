@@ -1,0 +1,21 @@
+{
+  "name": "booxgenius",
+  "version": "1.0.0",
+  "description": "MCP TypeScript for AI Book Generator",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": ["mcp", "typescript", "ai", "writing"],
+  "author": "Gemini",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
