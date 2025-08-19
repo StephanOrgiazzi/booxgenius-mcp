@@ -88,7 +88,7 @@ async function main() {
         console.log('Aucun nouveau personnage récurrent trouvé. La base est cohérente.');
     }
 
-    console.log('\n\n🚀 Démonstration terminée ! Le projet de livre se trouve dans le dossier 'mon-livre-de-test'.');
+    console.log('\n\n🚀 Démonstration terminée ! Le projet de livre se trouve dans le dossier \'mon-livre-de-test\'.');
 }
 
 main().catch(console.error);

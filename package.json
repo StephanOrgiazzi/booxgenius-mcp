@@ -7,7 +7,12 @@
     "start": "ts-node src/index.ts",
     "build": "tsc"
   },
-  "keywords": ["mcp", "typescript", "ai", "writing"],
+  "keywords": [
+    "mcp",
+    "typescript",
+    "ai",
+    "writing"
+  ],
   "author": "Gemini",
   "license": "ISC",
   "devDependencies": {
@@ -16,6 +21,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@types/express": "^5.0.3",
+    "express": "^5.1.0",
     "gray-matter": "^4.0.3"
   }
 }

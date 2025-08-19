@@ -2,6 +2,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import matter from 'gray-matter';
 import { Character, ChapterOutline, SceneMetadata } from './types';
+import express from 'express';
 
 const projectRoot = process.cwd();
 
@@ -137,3 +138,40 @@ export async function sync_characters_from_scenes(bookDir: string, minMentions =
     }
     return newCharacters;
 }
+
+// --- Server ---
+
+const app = express();
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.send('Booxgenius MCP server is running!');
+});
+
+app.post('/write_draft', async (req, res) => {
+    try {
+        const { bookDir, content } = req.body;
+        await write_draft(bookDir, content);
+        res.status(200).send('Draft written successfully.');
+    } catch (error) {
+        res.status(500).send(`Error writing draft: ${error}`);
+    }
+});
+
+app.get('/read_draft/:bookDir', async (req, res) => {
+    try {
+        const { bookDir } = req.params;
+        const content = await read_draft(bookDir);
+        res.status(200).send(content);
+    } catch (error) {
+        res.status(500).send(`Error reading draft: ${error}`);
+    }
+});
+
+// Add more endpoints for other functions here...
+
+app.listen(PORT, () => {
+    console.log(`Booxgenius MCP server listening on port ${PORT}`);
+});

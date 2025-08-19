@@ -1,0 +1,11 @@
+{
+  "mcp": {
+    "servers": [
+      {
+        "name": "booxgenius",
+        "command": "npx ts-node /data/data/com.termux/files/home/booxgenius-mcp/booxgenius/src/booxgenius.ts",
+        "description": "A local tool for Booxgenius."
+      }
+    ]
+  }
+}
